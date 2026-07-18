@@ -66,3 +66,8 @@ Customer retention is very important for any e-commerce business. Finding a new 
 git clone [https://github.com/rahulph32gm/E-Commerce-Customer-Churn.git](https://github.com/rahulph32gm/E-Commerce-Customer-Churn.git)
 cd E-Commerce-Customer-Churn
 ```
+
+#### **Working Link:**
+```bash
+https://e-commerce-customer-churn-e7eqezyfrk7w9ztgry8itb.streamlit.app/
+```
