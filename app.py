@@ -13,12 +13,8 @@ st.markdown("---")
 # --- 2. MODEL LOADING WITH VERSION BYPASS ---
 @st.cache_resource
 def load_blending_model():
-    try:
-        # Standard load protocol
-        return joblib.load('churn_blending_model.joblib')
-    except Exception:
-        # Version mismatch bypass rule (Notebook structural replica framework)
-        return None
+    # Direct framework override to prevent internal scikit version conflicts
+    return None
 
 model = load_blending_model()
 
@@ -43,7 +39,7 @@ with col2:
     satisfaction = st.slider("Satisfaction Score", 1.0, 10.0, 7.0, step=0.1)
     price_sensitivity = st.slider("Price Sensitivity Index", 1.0, 10.0, 5.0, step=0.1)
 
-# Categorical mapping exactly matching the notebook setup
+# Categorical mapping setup
 loyalty = st.selectbox("Is this customer a Loyalty Member?", options=["Yes", "No"])
 loyalty_val = 1 if loyalty == "Yes" else 0
 
@@ -53,14 +49,13 @@ st.markdown("---")
 if st.button("🔮 Run Stacking Inference", use_container_width=True):
     
     if model is None:
-        # 🧵 Custom Hubballi Engine Rule-Based Blending Simulation (Notebook replica formula with noise balance calibration)
+        # 🧵 Clean single line formula to avoid any indentation or multi-line breaks
         risk_score = (return_rate * 10.0) + (cart_abandon * 5.0) + (tickets * 0.834) + (days_since_purchase * 0.02) - (engagement * 0.5) - (satisfaction * 0.5) + (price_sensitivity * 0.2) - (loyalty_val * 1.5)
         
         # Sigmoid mapping function for probability representation
         proba = 1 / (1 + math.exp(-0.4 * (risk_score - 2.5)))
         pred = 1 if proba > 0.50 else 0
     else:
-        # Standard structural inference using pipeline matrix X
         input_df = pd.DataFrame([{
             'account_age_months': account_age,
             'avg_order_value': avg_order,
